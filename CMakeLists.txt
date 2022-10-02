@@ -29,5 +29,5 @@ else()
 endif()
 
 # build examples
-link_libraries($(project_name))
+link_libraries(${project_name})
 add_executable(test "examples/test.cpp")
