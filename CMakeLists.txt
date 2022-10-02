@@ -1,10 +1,11 @@
 # minimum version of cmake this will work on
 cmake_minimum_required(VERSION 3.0.0)
 
+# project's name and version
 set(project_name visar)
 project(${project_name} VERSION 1.0.0)
 
-# add /include to include directories
+# add ./include/ as an include directory
 include_directories(include)
 
 # recursively search the include and src directories
@@ -16,7 +17,7 @@ file(GLOB_RECURSE srcs
 )
 
 # depending on the library type, we set a correct macro
-# create a library of of the sources
+# create a library out of the sources
 if(LIBTYPE STREQUAL "STATIC")
 	add_library(${project_name} STATIC ${srcs})
 	target_compile_definitions(${project_name} PRIVATE LIB_BUILD_STATIC)
@@ -26,3 +27,7 @@ else()
 	target_compile_definitions(${project_name} PRIVATE LIB_BUILD_SHARED)
 
 endif()
+
+# build examples
+link_libraries($(project_name))
+add_executable(test "examples/test.cpp")
