@@ -20,11 +20,11 @@ file(GLOB_RECURSE srcs
 # create a library out of the sources
 if(LIBTYPE STREQUAL "STATIC")
 	add_library(${project_name} STATIC ${srcs})
-	target_compile_definitions(${project_name} PRIVATE LIB_BUILD_STATIC)
+	target_compile_definitions(${project_name} PRIVATE VISAR_BUILD_STATIC)
 
 else()
 	add_library(${project_name} SHARED ${srcs})
-	target_compile_definitions(${project_name} PRIVATE LIB_BUILD_SHARED)
+	target_compile_definitions(${project_name} PRIVATE VISAR_BUILD_SHARED)
 
 endif()
 

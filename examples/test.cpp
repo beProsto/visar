@@ -1,5 +1,5 @@
 #include <iostream>
-#include <lib.hpp>
+#include <visar/lib.hpp>
 
 int main() {
 	std::cout << areYouTheOneImLookingFor() << std::endl;
