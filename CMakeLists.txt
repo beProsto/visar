@@ -11,9 +11,8 @@ include_directories(include)
 # recursively search the include and src directories
 file(GLOB_RECURSE srcs
 	"include/*.hpp"
-	"include/*.h"
+	"src/*.hpp"
 	"src/*.cpp"
-	"src/*.c"
 )
 
 # depending on the library type, we set a correct macro
