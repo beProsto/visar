@@ -34,15 +34,17 @@ else()
 endif()
 
 
-function(VISAR_ADD_EXAMPLE name)
-	file(GLOB_RECURSE ${name}_srcs
-		"examples/${name}/*.hpp"
-		"examples/${name}/*.cpp"
-	)
+function(visar_add_example name)
+	if(VISAR_EXAMPLES_ON)
+		file(GLOB_RECURSE ${name}_srcs
+			"examples/${name}/*.hpp"
+			"examples/${name}/*.cpp"
+		)
 
-	add_executable(${name} ${VISAR_EXE_TYPE} ${${name}_srcs})
+		add_executable(${name} ${VISAR_EXE_TYPE} ${${name}_srcs})
 
-	if(VISAR_BUILD_STATIC)
-		target_compile_definitions(${name} PRIVATE VISAR_BUILD_STATIC)
+		if(VISAR_BUILD_STATIC)
+			target_compile_definitions(${name} PRIVATE VISAR_BUILD_STATIC)
+		endif()
 	endif()
 endfunction()
